@@ -1,6 +1,15 @@
 # YOLO Sign Language Detection
 
+![Bitbucket open issues ](https://img.shields.io/bitbucket/issues/Sehastrajit/Sign-Language-Flask)
 ![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue.svg)
+![Downloads](https://img.shields.io/github/downloads/Sehastrajit/Sign-Language-Flask/total)
+![Code Coverage](https://img.shields.io/codecov/c/github/Sehastrajit/Sign-Language-Flask)
+![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)
+![Last Commit](https://img.shields.io/github/last-commit/Sehastrajit/Sign-Language-Flask)
+
+Overview
+This project implements a real-time sign language detection system using the YOLO (You Only Look Once) object detection algorithm...
 
 ## Overview
 This project implements a real-time sign language detection system using the YOLO (You Only Look Once) object detection algorithm. It can accurately recognize and interpret American Sign Language (ASL) alphabet signs through a live video feed. The system is built with a web interface for easy interaction and accessibility.
