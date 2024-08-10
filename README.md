@@ -100,4 +100,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 Sehastrajit - sehastrajit@gmail.com
 
-Project Link: [https://github.com/your-username/yolo-sign-language-detection](https://github.com/your-username/yolo-sign-language-detection)
+Project Link: [(https://github.com/Sehastrajit/Sign-Language-Flask)](https://github.com/Sehastrajit/Sign-Language-Flask)
