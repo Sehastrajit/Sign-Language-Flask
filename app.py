@@ -34,13 +34,13 @@ def index():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     return render_template('index.html')
-
+#Sehastrajit S | Github Sehastrajit
 @app.route('/background-image')
 def serve_image():
     image_path = os.path.join(app.root_path, 'assets', 'image.jpg')
     return send_file(image_path, mimetype='image/jpeg')
 
-
+#Sehastrajit S | Github Sehastrajit
 def generate_frames():
     global latest_prediction
     cap = cv2.VideoCapture(0)
@@ -78,7 +78,7 @@ def generate_frames():
 def video_feed():
     return Response(generate_frames(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
-
+#Sehastrajit S | Github Sehastrajit
 @app.route('/get_prediction')
 def get_prediction():
     global latest_prediction
