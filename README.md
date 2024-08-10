@@ -1,5 +1,7 @@
 # YOLO Sign Language Detection
 
+![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+
 ## Overview
 This project implements a real-time sign language detection system using the YOLO (You Only Look Once) object detection algorithm. It can accurately recognize and interpret American Sign Language (ASL) alphabet signs through a live video feed. The system is built with a web interface for easy interaction and accessibility.
 
