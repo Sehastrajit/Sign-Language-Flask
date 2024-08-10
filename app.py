@@ -1,8 +1,8 @@
-from flask import Flask, Response, render_template, request, redirect, url_for, session, jsonify
+from flask import Flask, Response, render_template, request, redirect, url_for, session, jsonify, send_file
 import cv2
 import numpy as np
 from ultralytics import YOLO
-import google.generativeai as genai
+import os
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -10,11 +10,7 @@ app.secret_key = 'your_secret_key'
 model = YOLO(r'D:\Projects\fast-api-yolo\models\best.pt')
 class_names = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-genai.configure(api_key="AIzaSyACHQG5LqAaMxvLdaxVCWn1_nGqBTRMNys")
-gemini_model = genai.GenerativeModel('gemini-pro')
-
-last_prediction = ""
-
+latest_prediction = ""
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -38,6 +34,12 @@ def index():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     return render_template('index.html')
+
+@app.route('/background-image')
+def serve_image():
+    image_path = os.path.join(app.root_path, 'assets', 'image.jpg')
+    return send_file(image_path, mimetype='image/jpeg')
+
 
 def generate_frames():
     global latest_prediction
@@ -79,16 +81,8 @@ def video_feed():
 
 @app.route('/get_prediction')
 def get_prediction():
-    global latest_prediction, last_prediction
-    is_new = latest_prediction != last_prediction
-    last_prediction = latest_prediction
-    return jsonify({"prediction": latest_prediction, "is_new": is_new})
-
-@app.route('/get_gemini_response', methods=['POST'])
-def get_gemini_response():
-    user_input = request.json['user_input']
-    response = gemini_model.generate_content(user_input)
-    return jsonify({"response": response.text})
+    global latest_prediction
+    return jsonify({"prediction": latest_prediction})
 
 if __name__ == '__main__':
     app.run(debug=True)
